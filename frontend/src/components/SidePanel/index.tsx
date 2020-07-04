@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaHome, FaTruck } from 'react-icons/fa';
+import { FaHome, FaTruck, FaCoins } from 'react-icons/fa';
 import { MdDashboard } from 'react-icons/md';
-import { GrMoney } from 'react-icons/gr';
 
 import './styles.css';
 
@@ -22,7 +21,7 @@ const SidePanel: React.FC = () => {
         Dashboard
       </Link>
       <Link to="/sales">
-        <GrMoney />
+        <FaCoins />
         Vendas
       </Link>
       <Link to="/deliveries">

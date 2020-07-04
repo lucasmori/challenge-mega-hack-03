@@ -3,7 +3,8 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  background: #DBB6FC;
+  background: #EF3869;
+  /* background: rgb(255, 255, 255); */
 }
 
 * {

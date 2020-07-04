@@ -8,7 +8,7 @@ module.exports = {
     'airbnb',
     "prettier/@typescript-eslint",
     'prettier/react',
-    'plugin:prettier/recommended',
+    'prettier',
 
   ],
   globals: {
@@ -34,9 +34,15 @@ module.exports = {
       "error",
       "ignorePackages",
       {
-        "ts": "never"
+        "ts": "never",
+        'tsx': 'never'
       }
-    ]
+    ],
+    'react/jsx-filename-extension': [
+      'warn',
+      { extensions: ['jsx', 'js', 'tsx'] }
+    ],
+    'import/prefer-default-export': 'off'
   },
   "settings": {
     "import/resolver": {

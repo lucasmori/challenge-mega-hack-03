@@ -1,7 +1,8 @@
 import React from 'react';
 import { FaBusinessTime } from 'react-icons/fa';
 import { MdDashboard } from 'react-icons/md';
-import './sidePanel.css';
+
+import './styles.css';
 
 const sidePanel: React.FC = () => {
   return (

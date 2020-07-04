@@ -1,8 +1,7 @@
 import React from 'react';
-
-import SidePanel from './components/sidePanel/sidePanel';
-
 import './App.css';
+
+import SidePanel from './components/SidePanel';
 import Chart from './components/Chart';
 
 const App: React.FC = () => {

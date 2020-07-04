@@ -10,6 +10,14 @@
 
 }
 
+#home {
+  border-top: 1px solid rgba(168, 167, 167, 0.651);
+}
+
+.sidePanel img {
+  width: 100%;
+}
+
 .sidePanel svg {
   font-size: 20px;
   vertical-align: middle;

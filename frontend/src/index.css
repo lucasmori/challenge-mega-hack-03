@@ -3,6 +3,7 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
+  background: #DBB6FC;
 }
 
 * {
@@ -15,4 +16,9 @@ body {
 html, body, #root {
   min-height: 100vh;
   min-width: 100%;
+}
+
+#root {
+  display:flex;
+  flex-direction: row;
 }

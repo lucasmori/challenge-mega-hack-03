@@ -1,15 +1,17 @@
 import React from 'react';
 
 import SidePanel from './components/sidePanel/sidePanel';
-import GraphicPanel from './components/graphicPanel/graphicPanel';
 
 import './App.css';
+import Chart from './components/Chart';
 
 const App: React.FC = () => {
   return (
     <>
-      <SidePanel />
-      <GraphicPanel />
+      <div className="container">
+        <SidePanel />
+        <Chart />
+      </div>
     </>
   );
 };

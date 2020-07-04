@@ -5,13 +5,16 @@ import './sidePanel.css';
 
 const sidePanel: React.FC = () => {
   return (
-    <div id="sidePanel">
-      <FaBusinessTime />
+    <div className="sidePanel">
+      <a className="align" href="#">
+        <FaBusinessTime />
+        Início
+      </a>
       <hr />
-      <div>
+      <a className="align" href="#">
         <MdDashboard />
-        <a href="#">Dashboard</a>
-      </div>
+        Dashboard
+      </a>
       <hr />
       <a href="#">Vendas</a>
       <hr />
@@ -28,9 +31,6 @@ const sidePanel: React.FC = () => {
       <a href="#">Dashboard</a>
       <hr />
       <a href="#">Dashboard</a>
-      <hr />
-      <a href="#">Dashboard</a>
-      <hr />
     </div>
   );
 };

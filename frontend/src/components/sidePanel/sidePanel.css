@@ -1,32 +1,31 @@
-#sidePanel {
-  position: fixed;
-  left: 0;
-  width: 20%;
-  background: #F3EAF4;
-  height: 100%;
-  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
-  border: none;
+.sidePanel {
   display: flex;
   flex-direction: column;
+  width: 20%;
+  height: 100vh;
+  background: #F3EAF4;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+  border: none;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
-#sidePanel svg {
-  font-size: 80px;
-  margin-left: 10px;
+.sidePanel svg {
+  font-size: 20px;
+  vertical-align: middle;
+  margin-right: 15px;
+
 }
 
-#sidePanel a {
-  padding: 20px;
+.sidePanel a {
+  padding: 30px 0px;
   text-decoration: none;
-  width: 80%;
-  margin: 5px 0;
+  width: 100%;
   text-align: center;
   color: #171A21;
 }
 
-#sidePanel a:hover {
+.sidePanel a:hover {
   color: #171A21;
   text-decoration: none;
   cursor: pointer;
@@ -34,13 +33,13 @@
   transition: 0.3s;
 }
 
-#sidePanel a:active {
+.sidePanel a:active {
   background: #A80874;
 }
 
-#sidePanel hr {
-  width: 80%;
-  border-width: 0;
+.sidePanel hr {
+  width: 50%;
+  border-width: 1;
   background-color: gray;
   height: 1px;
 }

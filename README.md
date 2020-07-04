@@ -21,7 +21,7 @@ Nosso objetivo com essa aplicação foi desenvolver uma solução para o desafio
 
 <a id="documentation"></a>
 
-## :books: Documentation
+## :books: Documentação
   TODO
 
 <a id="technologies-used"></a>
@@ -38,12 +38,12 @@ Esse projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 ## :fire: Como Utilizar
 
-### Prerequisites
+### Pre requisitos
 
 - É **necessario** ter [Node.js](https://nodejs.org/) instalado na sua maquina;
 - Também, você **precisa** ter o gerenciador de pacotes [NPM](https://www.npmjs.com/get-npm) ou [Yarn](https://classic.yarnpkg.com/pt-BR/docs/install/);
 
-1.  Make the clone:
+1.  Faça o clone:
 
 ```shell
 $ git clone https://github.com/lucasmori/challenge-mega-hack-03.git
@@ -56,7 +56,7 @@ $ git clone https://github.com/lucasmori/challenge-mega-hack-03.git
 $ yarn
 
 # Start Frontend
-$ yarn dev
+$ yarn start
 ```
 
 <a id="how-to-contribute"></a>

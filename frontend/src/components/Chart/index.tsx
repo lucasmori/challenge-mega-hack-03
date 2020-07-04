@@ -4,15 +4,19 @@ import { Bar, Line, Pie } from 'react-chartjs-2';
 
 import './styles.css';
 
-const Chart: React.FC = () => {
+interface Props {
+  title: string;
+  displayTitle?: boolean;
+  displayLegend?: boolean;
+}
+const Chart: React.FC<Props> = ({ title, displayTitle, displayLegend }) => {
   const [chartData, setChartData] = useState({
     labels: [
-      'Boston',
-      'Worcester',
-      'Springfield',
-      'Lowell',
-      'Cambridge',
-      'New Bedford',
+      'Segunda-feira',
+      'Terça-feira',
+      'Quarta-feira',
+      'Quinta-feira',
+      'Sexta-feira',
     ],
     datasets: [
       {
@@ -32,7 +36,21 @@ const Chart: React.FC = () => {
   });
   return (
     <div className="chart">
-      <Bar data={chartData} />
+      <Bar
+        data={chartData}
+        options={{
+          maintainAspectRatio: false,
+          title: {
+            display: displayTitle || false,
+            text: title,
+            fontSize: 25,
+          },
+          legend: {
+            display: displayLegend || false,
+            position: 'right',
+          },
+        }}
+      />
     </div>
   );
 };

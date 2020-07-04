@@ -9,7 +9,14 @@ const App: React.FC = () => {
     <>
       <div className="container">
         <SidePanel />
-        <Chart />
+        <div className="grid">
+          <Chart title="grafico numero 1" displayTitle />
+          <Chart title="grafico numero 2" displayTitle />
+          <Chart title="grafico numero 3" displayTitle />
+          <Chart title="grafico numero 4" displayTitle />
+          <Chart title="grafico numero 5" displayTitle />
+          <Chart title="grafico numero 6" displayTitle />
+        </div>
       </div>
     </>
   );

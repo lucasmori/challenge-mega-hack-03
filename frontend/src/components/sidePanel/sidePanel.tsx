@@ -6,7 +6,7 @@ import './sidePanel.css';
 const sidePanel: React.FC = () => {
   return (
     <div className="sidePanel">
-      <a className="align" href="#">
+      <a href="#">
         <FaBusinessTime />
         Início
       </a>
@@ -16,21 +16,45 @@ const sidePanel: React.FC = () => {
         Dashboard
       </a>
       <hr />
-      <a href="#">Vendas</a>
+      <a href="#">
+        <MdDashboard />
+        Vendas
+      </a>
       <hr />
-      <a href="#">Entregas</a>
+      <a href="#">
+        <MdDashboard />
+        Entregas
+      </a>
       <hr />
-      <a href="#">Dashboard</a>
+      <a href="#">
+        <MdDashboard />
+        Dashboard
+      </a>
       <hr />
-      <a href="#">Dashboard</a>
+      <a href="#">
+        <MdDashboard />
+        Dashboard
+      </a>
       <hr />
-      <a href="#">Dashboard</a>
+      <a href="#">
+        <MdDashboard />
+        Dashboard
+      </a>
       <hr />
-      <a href="#">Dashboard</a>
+      <a href="#">
+        <MdDashboard />
+        Dashboard
+      </a>
       <hr />
-      <a href="#">Dashboard</a>
+      <a href="#">
+        <MdDashboard />
+        Dashboard
+      </a>
       <hr />
-      <a href="#">Dashboard</a>
+      <a href="#">
+        <MdDashboard />
+        Dashboard
+      </a>
     </div>
   );
 };

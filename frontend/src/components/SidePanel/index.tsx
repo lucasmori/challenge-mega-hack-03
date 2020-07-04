@@ -1,6 +1,7 @@
 import React from 'react';
-import { FaBusinessTime } from 'react-icons/fa';
+import { FaBusinessTime, FaHome } from 'react-icons/fa';
 import { MdDashboard } from 'react-icons/md';
+import { GrMoney } from 'react-icons/gr';
 
 import './styles.css';
 
@@ -8,7 +9,7 @@ const sidePanel: React.FC = () => {
   return (
     <div className="sidePanel">
       <a href="#">
-        <FaBusinessTime />
+        <FaHome />
         Início
       </a>
       <hr />

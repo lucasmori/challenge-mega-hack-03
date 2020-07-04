@@ -1,23 +1,27 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-// import { Container } from './styles';
+import './styles.css';
 
 const SalesTime: React.FC = () => {
-  const [data, setData] = useState(0);
+  const [products, setProducts] = useState(0);
 
-  // setTimeout(() => {
-  //   const e = Math.floor(Math.random() * 100) / 8;
+  useEffect(() => {
+    function time() {
+      setTimeout(async () => {
+        const number = (await Math.floor(Math.random() * 10000)) / 8;
 
-  //   setData(e);
-  // }, 3000);
+        setProducts(Number(number.toFixed(2)));
+      }, 5000);
+    }
+    time();
+  }, [products]);
 
   return (
-    <div>
+    <div className="averageSellingTime">
+      <h1>Tempo médio de vendas</h1>
       <p>
-        Tempo médio de vendas
-        <span> {data} </span>
-        produtos/hora
+        <span> {products} </span>
+        produtos/hora.
       </p>
     </div>
   );

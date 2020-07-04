@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 
 import { Bar, Line, Pie } from 'react-chartjs-2';
@@ -10,36 +9,15 @@ interface Props {
   displayTitle?: boolean;
   displayLegend?: boolean;
   type: 'bar' | 'line' | 'pie';
+  chartData: unknown;
 }
 const Chart: React.FC<Props> = ({
   title,
   displayTitle,
   displayLegend,
   type,
+  chartData,
 }) => {
-  const [chartData, setChartData] = useState({});
-  useEffect(() => {
-    const data = {
-      labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'],
-      datasets: [
-        {
-          label: 'Vendas',
-          data: [5000, 20000, 50000, 153000, 106000],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(153, 102, 255, 0.6)',
-            'rgba(255, 159, 64, 0.6)',
-            'rgba(255, 99, 132, 0.6)',
-          ],
-        },
-      ],
-    };
-    setChartData(data);
-  }, [chartData]);
-
   return (
     <div className="chart">
       {type === 'bar' && (
@@ -54,6 +32,7 @@ const Chart: React.FC<Props> = ({
               display: displayTitle || false,
               text: title,
               fontSize: 25,
+              defaultFontFamily: "'Ubuntu'",
             },
             legend: {
               display: displayLegend || false,
@@ -79,6 +58,7 @@ const Chart: React.FC<Props> = ({
               display: displayLegend || false,
               position: 'right',
             },
+            responsive: true,
             scales: {
               xAxes: [
                 {
@@ -95,11 +75,6 @@ const Chart: React.FC<Props> = ({
                 },
               ],
             },
-            // gridLines: {
-            //   display: false,
-            //   drawBorder: true,
-            //   drawOnChartArea: false,
-            // },
           }}
         />
       )}

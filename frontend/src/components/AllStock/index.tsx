@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 import './styles.css';
-/*
-{
-    "platform": "mercadoLivre",
-    "productName": "x",
-    "priceProduct": "2",
-    "quantity": "3",
-    "quantityBought": "ff",
-    "status": "in stock ou em trânsito+"
-}
-*/
+import api from '../../services/api';
+
 interface Product {
   platform: string;
   productName: string;
   priceProduct: string;
-  quantity: string;
   quantityBought: string;
   status: string;
 }
@@ -23,17 +14,14 @@ const AllStock: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    const response = [
-      {
-        platform: 'mercadoLivre',
-        productName: 'x',
-        priceProduct: '2',
-        quantity: '3',
-        quantityBought: 'ff',
-        status: 'in stock ou em trânsito+',
-      },
-    ];
-    setProducts(response);
+    api
+      .post('/getProducts', {
+        user: 'vtex',
+        platform: 'aliexpress',
+      })
+      .then(response => {
+        setProducts(response.data.products);
+      });
   }, []);
 
   return (
@@ -41,17 +29,17 @@ const AllStock: React.FC = () => {
       <div>
         <table className="table">
           <tr id="header">
+            <th>Origem</th>
             <th>Nome do produto</th>
-            <th>Preço de venda</th>
             <th>Preço de compra</th>
-            <th>Estoque</th>
+            <th>Quantidade</th>
             <th>Status</th>
           </tr>
           {products.map(product => {
             return (
               <tr className="item">
+                <td>{product.platform}</td>
                 <td>{product.productName}</td>
-                <td>{product.quantity}</td>
                 <td>{product.priceProduct}</td>
                 <td>{product.quantityBought}</td>
                 <td>{product.status}</td>

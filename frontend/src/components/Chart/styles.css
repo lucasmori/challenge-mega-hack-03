@@ -3,7 +3,7 @@
   justify-items: center;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 48vh 48vh;
   width: 82%;
   padding: 15px;
 }

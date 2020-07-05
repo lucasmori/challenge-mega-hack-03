@@ -15,19 +15,41 @@
   color: #666666;
   font-size: 25px;
   padding: 10px;
+  overflow: hidden;
 }
 
 #products {
   padding: 5px;
+  overflow: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 #products ul {
   list-style: none;
 }
 
-#elem {
+#elem{
   display: flex;
-  border: 1px solid black;
-  padding: 5px;
+  flex-direction:column ;
 
+}
+#elem h2{
+  padding-bottom: 4px;
+}
+
+#elem ul{
+  padding: 5px 25px;
+  border: 1px solid black;
+ margin-bottom: 5px;
+
+}
+
+#elem li{
+  padding: 1px;
+}
+
+#products::-webkit-scrollbar {
+  background: transparent;
 }

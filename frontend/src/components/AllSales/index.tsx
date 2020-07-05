@@ -48,8 +48,7 @@ const AllSales: React.FC = () => {
   function addQuantitySold() {}
 
   useEffect(() => {
-    // const response = api.get('posts');
-    const response = [
+    const responses = [
       {
         platform: 'Mercado Livre',
         products: [
@@ -114,7 +113,7 @@ const AllSales: React.FC = () => {
         ],
       },
     ];
-    setSellersData(response);
+    setSellersData(responses);
   }, []);
 
   function showPlatformProducts(platform: string) {

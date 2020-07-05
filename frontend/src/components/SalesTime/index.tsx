@@ -4,6 +4,61 @@ import './styles.css';
 
 const SalesTime: React.FC = () => {
   const [products, setProducts] = useState(0);
+  const [cost, setCost] = useState(0);
+
+  useEffect(() => {
+    let soma = 0;
+    const response = [
+      {
+        platform: 'Mercado Livre',
+        quantitySold: '255448',
+        problems: '99',
+        products: [
+          {
+            productName: 'x',
+            priceSold: '2',
+            priceProduct: '2',
+            stock: '3',
+            status: 'complete ou returned',
+          },
+        ],
+      },
+      {
+        platform: 'Mercado Livre',
+        quantitySold: '255448',
+        problems: '99',
+        products: [
+          {
+            productName: 'x',
+            priceSold: '2',
+            priceProduct: '2',
+            stock: '3',
+            status: 'complete ou returned',
+          },
+        ],
+      },
+      {
+        platform: 'Mercado Livre',
+        quantitySold: '255448',
+        problems: '99',
+        products: [
+          {
+            productName: 'x',
+            priceSold: '2',
+            priceProduct: '2',
+            stock: '5',
+            status: 'complete ou returned',
+          },
+        ],
+      },
+    ];
+    response.forEach(platform => {
+      platform.products.forEach(product => {
+        soma += Number(product.priceProduct) * Number(product.stock);
+      });
+    });
+    setCost(soma);
+  }, []);
 
   useEffect(() => {
     function time() {
@@ -20,8 +75,8 @@ const SalesTime: React.FC = () => {
     <div className="averageSellingTime">
       <h1>Custo operacional</h1>
       <p>
-        <span> {products} </span>
-        lucro + entrega
+        R$
+        <span> {`${cost},00`} </span>
       </p>
     </div>
   );

@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Sales from './pages/Sales';
 import Dashboard from './pages/Dashboard';
 import Deliveries from './pages/Deliveries';
+import Shopping from './pages/Shopping';
 
 const Routes: React.FC = () => {
   return (
@@ -12,8 +13,9 @@ const Routes: React.FC = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/shopping" component={Shopping} />
         <Route exact path="/sales" component={Sales} />
-        <Route exact path="/deliveries" component={Deliveries} />
+        <Route exact path="/resolutions" component={Deliveries} />
       </Switch>
     </BrowserRouter>
   );

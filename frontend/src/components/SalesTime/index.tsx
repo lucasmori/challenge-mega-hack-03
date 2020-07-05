@@ -18,10 +18,10 @@ const SalesTime: React.FC = () => {
 
   return (
     <div className="averageSellingTime">
-      <h1>Tempo médio de vendas</h1>
+      <h1>Custo operacional</h1>
       <p>
         <span> {products} </span>
-        produtos/hora.
+        lucro + entrega
       </p>
     </div>
   );

@@ -20,13 +20,17 @@ const SidePanel: React.FC = () => {
         <MdDashboard />
         Dashboard
       </Link>
+      <Link to="/shopping">
+        <FaCoins />
+        Compras
+      </Link>
       <Link to="/sales">
         <FaCoins />
         Vendas
       </Link>
-      <Link to="/deliveries">
+      <Link to="/resolutions">
         <FaTruck />
-        Entregas
+        Resoluções
       </Link>
     </div>
   );

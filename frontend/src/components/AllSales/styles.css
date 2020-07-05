@@ -1,0 +1,55 @@
+#allSales {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 82%;
+
+}
+
+#allSales>div {
+  width: 95%;
+  min-height: 95%;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.350);
+  border-radius: 5px;
+  padding: 5px;
+  margin: 25px 0px;
+}
+
+table {
+  padding: 10px 10px;
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+}
+
+.table th {
+  border-bottom: 1px solid red;
+}
+
+.table tr {
+text-align: center;
+font-size: 24px;
+}
+
+.table tr th{
+  padding: 5px 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.item{
+  border-collapse: collapse;
+}
+
+.item td {
+  padding: 5px;
+}
+
+.item:hover {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #F28CAC;
+  transition: 0.3s;
+}

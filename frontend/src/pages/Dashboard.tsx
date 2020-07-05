@@ -30,6 +30,17 @@ const Dashboard: React.FC = () => {
     setSalesChart(data);
   }, []);
 
+  /*
+{
+    "platform": "mercadoLivre",
+    "productName": "x",
+    "priceSold": "2",
+    "priceProduct": "2",
+    "stock": "3",
+    "quantitySold": "ff",
+    "status": "complete ou returned"
+}
+*/
   useEffect(() => {
     const data = {
       labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'],
@@ -56,30 +67,31 @@ const Dashboard: React.FC = () => {
     <>
       <SidePanel />
       <div className="grid">
-        <Chart title="Vendas" displayTitle type="line" chartData={salesChart} />
         <Chart
-          title="Entregas"
+          title="Vendas geral"
+          displayTitle
+          type="line"
+          chartData={salesChart}
+        />
+        <Chart
+          title="Lucro"
           displayTitle
           type="pie"
           displayLegend
           chartData={deliveriesChart}
         />
+
         <SalesTime />
 
         <Chart
-          title="grafico numero 4"
+          title="Mercado Livre"
           displayTitle
           type="bar"
           chartData={salesChart}
         />
+        <Chart title="Amazon" displayTitle type="bar" chartData={salesChart} />
         <Chart
-          title="grafico numero 5"
-          displayTitle
-          type="bar"
-          chartData={salesChart}
-        />
-        <Chart
-          title="grafico numero 6"
+          title="Americanas"
           displayTitle
           type="bar"
           chartData={salesChart}

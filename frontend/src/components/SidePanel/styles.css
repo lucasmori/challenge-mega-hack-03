@@ -40,3 +40,24 @@
 .sidePanel a:active {
   background: #F63165;
 }
+
+#logout {
+  margin-top: auto;
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+
+  border-top: 1px solid #F63165;
+}
+
+#logout:hover {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #F28CAC;
+  transition: 0.3s;
+}
+
+#logout:active {
+  background: #F63165;
+}

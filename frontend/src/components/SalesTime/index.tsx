@@ -3,11 +3,10 @@ import React, { useState, useEffect } from 'react';
 import './styles.css';
 
 const SalesTime: React.FC = () => {
-  const [products, setProducts] = useState(0);
-  const [cost, setCost] = useState(0);
+  const [cost, setCost] = useState('0');
 
   useEffect(() => {
-    let soma = 0;
+    let soma = 0.0;
     const response = [
       {
         platform: 'Mercado Livre',
@@ -57,26 +56,14 @@ const SalesTime: React.FC = () => {
         soma += Number(product.priceProduct) * Number(product.stock);
       });
     });
-    setCost(soma);
+    setCost(soma.toFixed(2));
   }, []);
-
-  useEffect(() => {
-    function time() {
-      setTimeout(async () => {
-        const number = (await Math.floor(Math.random() * 10000)) / 8;
-
-        setProducts(Number(number.toFixed(2)));
-      }, 5000);
-    }
-    time();
-  }, [products]);
 
   return (
     <div className="averageSellingTime">
       <h1>Custo operacional</h1>
       <p>
-        R$
-        <span> {`${cost},00`} </span>
+        R$<span> {`${cost}`} </span>{' '}
       </p>
     </div>
   );

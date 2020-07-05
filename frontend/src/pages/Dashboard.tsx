@@ -3,10 +3,69 @@ import React, { useEffect, useState } from 'react';
 import SidePanel from '../components/SidePanel';
 import Chart from '../components/Chart';
 import SalesTime from '../components/SalesTime';
+import ProductTableChart from '../components/ProductTableChart';
 
 const Dashboard: React.FC = () => {
   const [salesChart, setSalesChart] = useState({});
   const [deliveriesChart, setDeliveriesChart] = useState({});
+
+  const productData = [
+    {
+      platform: 'Mercado Livre',
+      products: [
+        {
+          productName: 'produto 1',
+          quantitySold: '2554',
+          priceSold: '2',
+          priceProduct: '2',
+          stock: '3',
+          status: 'complete ou returned',
+        },
+        {
+          productName: 'produto 2',
+          quantitySold: '2554',
+          priceSold: '2',
+          priceProduct: '2',
+          stock: '3',
+          status: 'complete ou returned',
+        },
+        {
+          productName: 'produto 3',
+          quantitySold: '2554',
+          priceSold: '2',
+          priceProduct: '2',
+          stock: '3',
+          status: 'complete ou returned',
+        },
+      ],
+    },
+    {
+      platform: 'Amazon',
+      products: [
+        {
+          productName: 'vassoura',
+          quantitySold: '2554',
+          priceSold: '2',
+          priceProduct: '2',
+          stock: '3',
+          status: 'complete ou returned',
+        },
+      ],
+    },
+    {
+      platform: 'Americanas',
+      products: [
+        {
+          productName: 'x',
+          quantitySold: '2554',
+          priceSold: '2',
+          priceProduct: '2',
+          stock: '3',
+          status: 'complete ou returned',
+        },
+      ],
+    },
+  ];
 
   useEffect(() => {
     const data = {
@@ -83,19 +142,9 @@ const Dashboard: React.FC = () => {
 
         <SalesTime />
 
-        <Chart
-          title="Mercado Livre"
-          displayTitle
-          type="bar"
-          chartData={salesChart}
-        />
-        <Chart title="Amazon" displayTitle type="bar" chartData={salesChart} />
-        <Chart
-          title="Americanas"
-          displayTitle
-          type="bar"
-          chartData={salesChart}
-        />
+        {productData.slice(0, 3).map(product => {
+          return <ProductTableChart data={product} />;
+        })}
       </div>
     </>
   );

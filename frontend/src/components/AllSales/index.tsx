@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
 import './styles.css';
-import { FaFileExcel } from 'react-icons/fa';
+
+import api from '../../services/api';
 
 interface Data {
   platform: string;
-  quantitySold: string;
-  problems: string;
   products: {
     productName: string;
+    quantitySold: string;
     priceSold: string;
     priceProduct: string;
     stock: string;
@@ -18,6 +18,7 @@ interface Data {
 
 interface DataProducts {
   productName: string;
+  quantitySold: string;
   priceSold: string;
   priceProduct: string;
   stock: string;
@@ -30,24 +31,47 @@ const AllSales: React.FC = () => {
   const [platformShow, setPlatformShow] = useState(true);
   /*
 {
-    "platform": "mercadoLivre",
-    "productName": "x",
-    "priceSold": "2",
-    "priceProduct": "2",
-    "stock": "3",
-    "quantitySold": "ff",
-    "status": "complete ou returned"
-}
-*/
-  useEffect(() => {
-    const response = [
-      {
         platform: 'Mercado Livre',
-        quantitySold: '255448',
-        problems: '99',
         products: [
           {
             productName: 'x',
+            quantitySold: '2554',
+            priceSold: '2',
+            priceProduct: '2',
+            stock: '3',
+            status: 'complete ou returned',
+          },
+        ],
+      },
+*/
+
+  function addQuantitySold() {}
+
+  useEffect(() => {
+    // const response = api.get('posts');
+    const response = [
+      {
+        platform: 'Mercado Livre',
+        products: [
+          {
+            productName: 'x',
+            quantitySold: '2554',
+            priceSold: '2',
+            priceProduct: '2',
+            stock: '3',
+            status: 'complete ou returned',
+          },
+          {
+            productName: 'x',
+            quantitySold: '2554',
+            priceSold: '2',
+            priceProduct: '2',
+            stock: '3',
+            status: 'complete ou returned',
+          },
+          {
+            productName: 'x',
+            quantitySold: '2554',
             priceSold: '2',
             priceProduct: '2',
             stock: '3',
@@ -57,25 +81,18 @@ const AllSales: React.FC = () => {
       },
       {
         platform: 'Amazon',
-        quantitySold: '5157',
-        problems: '75',
-        products: [
-          {
-            productName: 'dsgdsfds',
-            priceSold: '515',
-            priceProduct: '5145',
-            stock: '5444',
-            status: 'complete ou returned',
-          },
-        ],
-      },
-      {
-        platform: 'Mercado Livre',
-        quantitySold: '255448',
-        problems: '99',
         products: [
           {
             productName: 'x',
+            quantitySold: '254',
+            priceSold: '2',
+            priceProduct: '2',
+            stock: '3',
+            status: 'complete ou returned',
+          },
+          {
+            productName: 'x',
+            quantitySold: '254',
             priceSold: '2',
             priceProduct: '2',
             stock: '3',
@@ -84,41 +101,12 @@ const AllSales: React.FC = () => {
         ],
       },
       {
-        platform: 'Mercado Livre',
-        quantitySold: '255448',
-        problems: '99',
+        platform: 'Americanas',
         products: [
           {
             productName: 'x',
-            priceSold: '2',
-            priceProduct: '2',
-            stock: '3',
-            status: 'complete ou returned',
-          },
-        ],
-      },
-      {
-        platform: 'Mercado Livre',
-        quantitySold: '255448',
-        problems: '99',
-        products: [
-          {
-            productName: 'x',
-            priceSold: '2',
-            priceProduct: '2',
-            stock: '3',
-            status: 'complete ou returned',
-          },
-        ],
-      },
-      {
-        platform: 'Uber',
-        quantitySold: '123',
-        problems: '88',
-        products: [
-          {
-            productName: 'mercado',
-            priceSold: '2',
+            quantitySold: '2554',
+            priceSold: '25',
             priceProduct: '2',
             stock: '3',
             status: 'complete ou returned',
@@ -139,6 +127,14 @@ const AllSales: React.FC = () => {
     });
   }
 
+  function calculateQuantitySold(seller: Data) {
+    let soma = 0.0;
+    seller.products.map(product => {
+      soma += Number(product.quantitySold);
+    });
+    return soma;
+  }
+
   return (
     <div id="allSales">
       <div>
@@ -147,7 +143,6 @@ const AllSales: React.FC = () => {
             <tr id="header">
               <th>Plataforma</th>
               <th>Quantidade vendida</th>
-              <th>Problemas</th>
             </tr>
             {sellers.map(seller => {
               return (
@@ -156,8 +151,7 @@ const AllSales: React.FC = () => {
                   onClick={() => showPlatformProducts(seller.platform)}
                 >
                   <td>{seller.platform}</td>
-                  <td>{seller.quantitySold}</td>
-                  <td>{seller.problems}</td>
+                  <td>{calculateQuantitySold(seller)}</td>
                 </tr>
               );
             })}
@@ -169,6 +163,7 @@ const AllSales: React.FC = () => {
           <table className="table" id="platformDetail">
             <tr id="header">
               <th>Nome do produto</th>
+              <th>Quantidade Vendida</th>
               <th>Preço de venda</th>
               <th>Preço de compra</th>
               <th>Estoque</th>
@@ -178,6 +173,7 @@ const AllSales: React.FC = () => {
               return (
                 <tr className="item" onClick={() => setPlatformShow(true)}>
                   <td>{product.productName}</td>
+                  <td>{product.quantitySold}</td>
                   <td>{product.priceSold}</td>
                   <td>{product.priceProduct}</td>
                   <td>{product.stock}</td>

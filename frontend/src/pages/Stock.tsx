@@ -1,12 +1,14 @@
 import React from 'react';
 import SidePanel from '../components/SidePanel';
+import AllStock from '../components/AllStock';
 
-const Shopping: React.FC = () => {
+const Stock: React.FC = () => {
   return (
     <>
       <SidePanel />
+      <AllStock />
     </>
   );
 };
 
-export default Shopping;
+export default Stock;

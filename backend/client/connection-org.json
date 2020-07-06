@@ -1,0 +1,62 @@
+{
+    "name": "JaVazei-network",
+    "version": "1.0.0",
+    "client": {
+      "organization": "JaVazei",
+      "connection": {
+        "timeout": {
+          "peer": {
+            "endorser": "300"
+          },
+          "orderer": "300"
+        }
+      }
+    },
+    "channels": {
+      "JaVazeichannel": {
+        "orderers": ["orderer.javazei.com"],
+        "peers": {
+          "peer.javazei.com": {}
+        }
+      }
+    },
+    "organizations": {
+      "JaVazei": {
+        "mspid": "JaVazeiMSP",
+        "peers": ["peer.javazei.com"],
+        "certificateAuthorities": ["ca.javazei.com"]
+      }
+    },
+    "orderers": {
+      "orderer.javazei.com": {
+        "url": "grpcs://192.168.68.169:7050"
+      }
+    },
+    "peers": {
+      "peer.javazei.com": {
+        "url": "grpcs://192.168.68.169:7051",
+        "tlsCACerts": {
+          "pem": "ca.crt"
+        }
+      }
+    },
+    "certificateAuthorities": {
+      "ca.javazei.com": {
+        "url": "https://192.168.68.169:7054",
+        "caName": "ca.javazei.com",
+        "httpOptions": {
+          "verify": false
+        },
+        "tlsCACerts": {
+          "pem": "tls-cert.pem"
+        },
+        "registrar": [
+          {
+            "enrollId": "admin",
+            "enrollSecret": "adminpw"
+          }
+        ]
+      }
+    }
+  }
+  

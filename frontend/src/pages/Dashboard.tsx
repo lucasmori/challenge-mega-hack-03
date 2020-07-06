@@ -4,68 +4,56 @@ import SidePanel from '../components/SidePanel';
 import Chart from '../components/Chart';
 import SalesTime from '../components/SalesTime';
 import ProductTableChart from '../components/ProductTableChart';
+import api from '../services/api';
+
+interface Data {
+  platform: string;
+  products: {
+    productName: string;
+    priceSold: string;
+    priceProduct: string;
+    stock: string;
+    quantitySold: string;
+    status: string;
+  }[];
+}
 
 const Dashboard: React.FC = () => {
   const [salesChart, setSalesChart] = useState({});
   const [deliveriesChart, setDeliveriesChart] = useState({});
+  const [sellers, setSellersData] = useState<Data[]>([]);
+  const [loading, setLoading] = useState(false);
 
-  const productData = [
-    {
-      platform: 'Mercado Livre',
-      products: [
-        {
-          productName: 'produto 1',
-          quantitySold: '2554',
-          priceSold: '2',
-          priceProduct: '2',
-          stock: '3',
-          status: 'complete ou returned',
-        },
-        {
-          productName: 'produto 2',
-          quantitySold: '2554',
-          priceSold: '2',
-          priceProduct: '2',
-          stock: '3',
-          status: 'complete ou returned',
-        },
-        {
-          productName: 'produto 3',
-          quantitySold: '2554',
-          priceSold: '2',
-          priceProduct: '2',
-          stock: '3',
-          status: 'complete ou returned',
-        },
-      ],
-    },
-    {
-      platform: 'Amazon',
-      products: [
-        {
-          productName: 'vassoura',
-          quantitySold: '2554',
-          priceSold: '2',
-          priceProduct: '2',
-          stock: '3',
-          status: 'complete ou returned',
-        },
-      ],
-    },
-    {
-      platform: 'Americanas',
-      products: [
-        {
-          productName: 'x',
-          quantitySold: '2554',
-          priceSold: '2',
-          priceProduct: '2',
-          stock: '3',
-          status: 'complete ou returned',
-        },
-      ],
-    },
-  ];
+  async function getData() {
+    setLoading(true);
+    const platforms = [];
+    const responseMl = await api.post('/getProducts', {
+      user: 'vtex',
+      platform: 'mercadoLivre',
+    });
+
+    platforms.push(responseMl.data);
+
+    const responseAmz = await api.post('/getProducts', {
+      user: 'vtex',
+      platform: 'amazon',
+    });
+
+    platforms.push(responseAmz.data);
+
+    const responseAm = await api.post('/getProducts', {
+      user: 'vtex',
+      platform: 'americanas',
+    });
+
+    platforms.push(responseAm.data);
+
+    setSellersData(platforms);
+    setLoading(false);
+  }
+  useEffect(() => {
+    getData();
+  }, []);
 
   useEffect(() => {
     const data = {
@@ -89,17 +77,6 @@ const Dashboard: React.FC = () => {
     setSalesChart(data);
   }, []);
 
-  /*
-{
-    "platform": "mercadoLivre",
-    "productName": "x",
-    "priceSold": "2",
-    "priceProduct": "2",
-    "stock": "3",
-    "quantitySold": "ff",
-    "status": "complete ou returned"
-}
-*/
   useEffect(() => {
     const data = {
       labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'],
@@ -142,9 +119,17 @@ const Dashboard: React.FC = () => {
 
         <SalesTime />
 
-        {productData.slice(0, 3).map(product => {
-          return <ProductTableChart data={product} />;
-        })}
+        {loading ? (
+          <>
+            <div className="productChart" />
+            <div className="productChart" />
+            <div className="productChart" />
+          </>
+        ) : (
+          sellers.slice(0, 3).map(product => {
+            return <ProductTableChart data={product} />;
+          })
+        )}
       </div>
     </>
   );

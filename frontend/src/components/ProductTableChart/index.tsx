@@ -1,29 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './styles.css';
+import api from '../../services/api';
 
-interface DataDTO {
+interface Data {
   platform: string;
   products: {
     productName: string;
-    quantitySold: string;
     priceSold: string;
     priceProduct: string;
     stock: string;
+    quantitySold: string;
     status: string;
   }[];
 }
 interface Props {
-  data: DataDTO;
+  data: Data;
 }
 
 const ProductTableChart: React.FC<Props> = ({ data }) => {
   return (
-    <div id="productChart">
+    <div className="productChart">
       <h1>{data.platform}</h1>
       <div id="products">
         <div id="elem">
-          {data.products.map(product => {
+          {data.products.slice(0, 3).map(product => {
             return (
               <>
                 <ul>

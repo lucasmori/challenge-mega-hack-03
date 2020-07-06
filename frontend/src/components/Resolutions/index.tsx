@@ -43,7 +43,6 @@ const Resolutions: React.FC = () => {
 
     setSellersData(platforms);
   }
-  console.log(sellers);
   useEffect(() => {
     getData();
   }, []);

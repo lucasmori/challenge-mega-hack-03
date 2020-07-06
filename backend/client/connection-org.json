@@ -1,8 +1,8 @@
 {
-    "name": "JaVazei-network",
+    "name": "Vtex-network",
     "version": "1.0.0",
     "client": {
-      "organization": "JaVazei",
+      "organization": "Vtex",
       "connection": {
         "timeout": {
           "peer": {
@@ -13,37 +13,37 @@
       }
     },
     "channels": {
-      "JaVazeichannel": {
-        "orderers": ["orderer.javazei.com"],
+      "Vtexchannel": {
+        "orderers": ["orderer.vtex.com"],
         "peers": {
-          "peer.javazei.com": {}
+          "peer.vtex.com": {}
         }
       }
     },
     "organizations": {
-      "JaVazei": {
-        "mspid": "JaVazeiMSP",
-        "peers": ["peer.javazei.com"],
-        "certificateAuthorities": ["ca.javazei.com"]
+      "Vtex": {
+        "mspid": "VtexMSP",
+        "peers": ["peer.vtex.com"],
+        "certificateAuthorities": ["ca.vtex.com"]
       }
     },
     "orderers": {
-      "orderer.javazei.com": {
-        "url": "grpcs://192.168.68.169:7050"
+      "orderer.vtex.com": {
+        "url": "grpcs://192.168.15.121:7050"
       }
     },
     "peers": {
-      "peer.javazei.com": {
-        "url": "grpcs://192.168.68.169:7051",
+      "peer.vtex.com": {
+        "url": "grpcs://192.168.15.121:7051",
         "tlsCACerts": {
           "pem": "ca.crt"
         }
       }
     },
     "certificateAuthorities": {
-      "ca.javazei.com": {
-        "url": "https://192.168.68.169:7054",
-        "caName": "ca.javazei.com",
+      "ca.vtex.com": {
+        "url": "https://192.168.15.121:7054",
+        "caName": "ca.vtex.com",
         "httpOptions": {
           "verify": false
         },

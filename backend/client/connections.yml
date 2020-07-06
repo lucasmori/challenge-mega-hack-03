@@ -1,13 +1,13 @@
-name: "JaVazei-network"
+name: "Vtex-network"
 version: "1.0"
 x-type: "hlfv1"
 
 channels:
-  javazeichannel:
+  vtexchannel:
     orderers:
-      - orderer1.javazei.com
+      - orderer1.vtex.com
     peers:
-      peer.javazei.com:
+      peer.vtex.com:
         endorsingPeer: true
         chaincodeQuery: true
         ledgerQuery: true
@@ -15,38 +15,38 @@ channels:
         discover: true
 
 organizations:
-  JaVazei:
-    mspid: JaVazeiMSP
+  Vtex:
+    mspid: VtexMSP
     peers:
-      - peer.javazei.com
+      - peer.vtex.com
     certificateAuthorities:
-      - ca.javazei.com
+      - ca.vtex.com
 
 orderers:
-  orderer1.javazei.com:
-    url: grpcs://192.168.68.169:7050
+  orderer1.vtex.com:
+    url: grpcs://192.168.15.121:7050
     grpcOptions:
-      ssl-target-name-override: orderer1.javazei.com
+      ssl-target-name-override: orderer1.vtex.com
       grpc-max-send-message-length: -1
     tlsCACerts:
       path: ca.crt
 
 peers:
-  peer.javazei.com:
-    url: grpcs://192.168.68.169:7051
-    eventUrl: grpcs://192.168.68.169:7053
+  peer.vtex.com:
+    url: grpcs://192.168.15.121:7051
+    eventUrl: grpcs://192.168.15.121:7053
     grpcOptions:
-      ssl-target-name-override: peer.javazei.com
+      ssl-target-name-override: peer.vtex.com
       grpc.keepalive_time_ms: 120001
     tlsCACerts:
       path: ca.crt
 
 certificateAuthorities:
-  ca.javazei.com:
-    url: https://192.168.68.169:7054
+  ca.vtex.com:
+    url: https://192.168.15.121:7054
     httpOptions:
       verify: false
     registrar:
       - enrollId: admin
         enrollSecret: adminpw
-    caName: ca.javazei.com
+    caName: ca.vtex.com

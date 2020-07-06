@@ -32,7 +32,9 @@ export class ProductManager {
         result.toString().replace(/\\/g, "")
       );
 
-      res.status(200).send(result.toString().replace(/\\/g, ""));
+      var jsonResponse = JSON.parse(result.toString());
+
+      res.status(200).send(JSON.parse(jsonResponse));
     } catch (error) {
       console.log(error.toString());
       res.status(500).send(error.toString());
